@@ -30,3 +30,22 @@ body {
   background-color: rgba(239, 57, 78, 0.3);
   border-radius: 5px;
 }
+
+.rc-slider-handle {
+  width: 14px;
+  height: 14px;
+  border: solid 2px #ef394e !important;
+}
+
+.rc-slider-handle-dragging.rc-slider-handle-dragging.rc-slider-handle-dragging {
+  border-color: #ef394e !important;
+  box-shadow: 0 0 0 5px rgb(239, 57, 78, 0.5) !important;
+}
+
+.rc-slider-track {
+  background-color: #ef394e !important;
+}
+
+.rc-slider-dot-active {
+  border-color: #ef394e !important;
+}

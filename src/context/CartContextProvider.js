@@ -19,7 +19,6 @@ const sumItems = (items) => {
 };
 
 const cartReducer = (state, action) => {
-  console.log(action.type);
   switch (action.type) {
     case "ADD_ITEM":
       if (!state.selectedItems.find((item) => item.id === action.payload.id)) {

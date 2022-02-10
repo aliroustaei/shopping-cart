@@ -1,0 +1,65 @@
+.container {
+  flex: 1;
+  background-color: #fdfdfd;
+  border-radius: 10px;
+  position: sticky;
+  height: fit-content;
+  margin-right: 20px;
+  top: 50px;
+  box-shadow: 0px 5px 24px rgba(149, 157, 165, 0.4);
+  padding: 20px;
+}
+
+.filterBox {
+  margin-bottom: 1rem;
+  background-color: #f7f7f7;
+  padding: 15px;
+  border-radius: 10px;
+  position: relative;
+}
+
+.filterBox:nth-child(3) {
+  padding-bottom: 35px;
+  margin-bottom: 0;
+}
+
+.filterBox select {
+  border-radius: 5px;
+  border: 1px solid #bbbaba;
+  padding: 5px;
+  background-color: transparent;
+  color: #555;
+}
+
+.filterbox select:focus {
+  border: 2px solid transparent;
+  outline: solid #ef394e 2px;
+}
+
+.filteTitle {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.filteTitle img {
+  width: 25px;
+  margin-right: 10px;
+}
+
+.filteInfo {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+@media (max-width: 555px) {
+  .container {
+    position: relative;
+    top: 0;
+    margin-bottom: 2rem;
+    margin-right: 0;
+  }
+}

@@ -18,6 +18,7 @@ const Store = () => {
   return (
     <div className={styles.container}>
       <Sidebar />
+
       <div className={styles.product}>
         {(filter.filterItems.length > 0 ? filter.filterItems : products).map(
           (product) => (

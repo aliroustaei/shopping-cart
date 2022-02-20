@@ -1,10 +1,8 @@
 .container {
-  width: 270px;
   border: 1px solid silver;
   border-radius: 10px;
   overflow: hidden;
   background-color: #fff;
-  margin: 0 10px 50px;
   transition: all 0.3s ease-in-out;
   text-align: center;
 }
@@ -150,34 +148,4 @@
   font-size: 1rem;
   font-weight: 600;
   color: #404040;
-}
-
-@media (max-width: 1000px) {
-  .container {
-    width: 45%;
-  }
-}
-
-@media (max-width: 768px) {
-  .container {
-    width: 70%;
-  }
-  .cardImage {
-    width: 200px;
-  }
-}
-
-@media (max-width: 555px) {
-  .container {
-    width: 80%;
-  }
-  .cardImage {
-    width: 230px;
-  }
-}
-
-@media (max-width: 400px) {
-  .container {
-    width: 90%;
-  }
 }

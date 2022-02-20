@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 // Components
 import Product from "./shared/Product";
@@ -19,13 +20,15 @@ const Store = () => {
     <div className={styles.container}>
       <Sidebar />
 
-      <div className={styles.product}>
-        {(filter.filterItems.length > 0 ? filter.filterItems : products).map(
-          (product) => (
-            <Product key={product.id} productData={product} />
-          )
-        )}
-      </div>
+      <motion.div animate={{ x: 0, y: 0 }} className={styles.product}>
+        <AnimatePresence>
+          {(filter.filterItems.length > 0 ? filter.filterItems : products).map(
+            (product) => (
+              <Product key={product.id} productData={product} />
+            )
+          )}
+        </AnimatePresence>
+      </motion.div>
     </div>
   );
 };

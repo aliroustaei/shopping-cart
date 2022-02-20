@@ -1,5 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 // Functions
 import { shorten, isInCart, quantityCount } from "../../helper/functions";
@@ -33,7 +34,14 @@ const Product = ({ productData }) => {
   };
 
   return (
-    <div className={styles.container}>
+    <motion.div
+      layout
+      animate={{ opacity: 1, scale: 1 }}
+      initial={{ opacity: 0, scale: 0 }}
+      exit={{ opacity: 0, scale: 0 }}
+      transition={{ duration: 0.4 }}
+      className={styles.container}
+    >
       {img && (
         <div className={styles.imgBoxMove}>
           <img className={styles.cardImageMove} src={img} alt="product" />
@@ -102,7 +110,7 @@ const Product = ({ productData }) => {
           )}
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

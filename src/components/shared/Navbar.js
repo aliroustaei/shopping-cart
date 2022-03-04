@@ -1,5 +1,4 @@
-/* eslint-disable react/jsx-no-duplicate-props */
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -28,10 +27,9 @@ const Navbar = () => {
         <form>
           <input
             type="text"
-            className="search"
             name="search"
             placeholder="Search"
-            className={styles.search}
+            className={`${styles.search} ${search}`}
             onChange={(e) => dispatch(search(products, e.target.value))}
           />
         </form>

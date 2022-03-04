@@ -1,17 +1,21 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Range } from "rc-slider";
+import { useSelector, useDispatch } from "react-redux";
 //styles
 import styles from "./Sidebar.module.css";
 import "rc-slider/assets/index.css";
-// Context
-import { filterContext } from "../../context/FilterContextProvider";
+// Redux Actions
+import { rating, category, price } from "../../redux/filter/filterAction";
+
 //icon
 import shirt from "../../assets/icons/shirt.png";
 import money from "../../assets/icons/money.png";
 import favourites from "../../assets/icons/favourites.png";
 
 const Sidebar = () => {
-  const { dispatch, filter } = useContext(filterContext);
+  const filter = useSelector((state) => state.filterState);
+  const products = useSelector((state) => state.productsState.products);
+  const dispatch = useDispatch();
 
   return (
     <div className={styles.container}>
@@ -20,11 +24,7 @@ const Sidebar = () => {
           <img src={shirt} alt="bag" />
           <p>Category</p>
         </div>
-        <select
-          onChange={(e) =>
-            dispatch({ type: "category", value: e.target.value })
-          }
-        >
+        <select onChange={(e) => dispatch(category(products, e.target.value))}>
           <option value="men's clothing">men's clothing</option>
           <option value="women's clothing">women's clothing</option>
           <option value="jewelery">jewelery</option>
@@ -42,7 +42,7 @@ const Sidebar = () => {
           max={1000}
           Value={filter.priceData}
           defaultValue={filter.priceData}
-          onAfterChange={(e) => dispatch({ type: "price", value: e })}
+          onAfterChange={(e) => dispatch(price(products, e))}
         />
         <div className={styles.filteInfo}>
           <p>from: {filter.priceData[0]} $</p>
@@ -62,7 +62,7 @@ const Sidebar = () => {
           marks={{ 1: "1", 2: "2", 3: "3", 4: "4", 5: "5" }}
           Value={filter.ratingData}
           defaultValue={filter.ratingData}
-          onAfterChange={(e) => dispatch({ type: "rating", value: e })}
+          onAfterChange={(e) => dispatch(rating(products, e))}
         />
       </div>
     </div>

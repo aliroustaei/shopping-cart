@@ -3,10 +3,10 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useSelector, useDispatch } from "react-redux";
 
-// Context
-import { CartContext } from "../../context/CartContextProvider";
-import { filterContext } from "../../context/FilterContextProvider";
+// Redux Actions
+import { search } from "../../redux/filter/filterAction";
 
 // Icons
 import shopIcon from "../../assets/icons/shop.svg";
@@ -15,8 +15,9 @@ import shopIcon from "../../assets/icons/shop.svg";
 import styles from "./Navbar.module.css";
 
 const Navbar = () => {
-  const { state } = useContext(CartContext);
-  const { dispatch } = useContext(filterContext);
+  const state = useSelector((state) => state.cartState);
+  const products = useSelector((state) => state.productsState.products);
+  const dispatch = useDispatch();
 
   return (
     <div className={styles.mainContainer}>
@@ -31,9 +32,7 @@ const Navbar = () => {
             name="search"
             placeholder="Search"
             className={styles.search}
-            onChange={(e) =>
-              dispatch({ type: "search", value: e.target.value })
-            }
+            onChange={(e) => dispatch(search(products, e.target.value))}
           />
         </form>
         <div className={styles.iconContainer}>

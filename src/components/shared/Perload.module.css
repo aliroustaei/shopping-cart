@@ -3,11 +3,11 @@
   justify-content: center;
   align-items: center;
   background-color: #fdfdfd;
-  min-height: 100vh;
+  height: 80vh;
   width: 100%;
   transition: all 0.3s ease;
-  position: fixed;
-  z-index: 55;
+  position: absolute;
+  border-radius: 10px;
 }
 
 .perload img {

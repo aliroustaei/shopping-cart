@@ -1,34 +1,49 @@
-import React, { useContext } from "react";
+import React, { useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useDispatch, useSelector } from "react-redux";
 
 // Components
 import Product from "./shared/Product";
 import Sidebar from "./shared/Sidebar";
+import Perload from "./shared/Perload";
 
-// Context
-import { filterContext } from "../context/FilterContextProvider";
-import { ProductsContext } from "../context/ProductContextProvider";
+//Redux Actions
+import { fetchProducts } from "../redux/products/productsAction";
 
 // Style
 import styles from "./Store.module.css";
 
 const Store = () => {
-  const { filter } = useContext(filterContext);
-  const { products } = useContext(ProductsContext);
+  const dispatch = useDispatch();
+  const productsState = useSelector((state) => state.productsState);
+  const filterState = useSelector((state) => state.filterState);
+
+  useEffect(() => {
+    !productsState.products.length && dispatch(fetchProducts());
+  }, []);
 
   return (
     <div className={styles.container}>
       <Sidebar />
 
-      <motion.div animate={{ x: 0, y: 0 }} className={styles.product}>
+      <div className={styles.productBox}>
         <AnimatePresence>
-          {(filter.filterItems.length > 0 ? filter.filterItems : products).map(
-            (product) => (
-              <Product key={product.id} productData={product} />
-            )
+          {productsState.loading ? (
+            <Perload />
+          ) : productsState.error ? (
+            <p>Something went wrong</p>
+          ) : (
+            <motion.div animate={{ x: 0, y: 0 }} className={styles.product}>
+              {(filterState.filterItems.length
+                ? filterState.filterItems
+                : productsState.products
+              ).map((product) => (
+                <Product key={product.id} productData={product} />
+              ))}
+            </motion.div>
           )}
         </AnimatePresence>
-      </motion.div>
+      </div>
     </div>
   );
 };

@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Product from "./shared/Product";
 import Sidebar from "./shared/Sidebar";
 import Perload from "./shared/Perload";
+import Header from "./shared/Header";
 
 //Redux Actions
 import { fetchProducts } from "../redux/products/productsAction";
@@ -20,30 +21,35 @@ const Store = () => {
 
   useEffect(() => {
     !productsState.products.length && dispatch(fetchProducts());
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
-    <div className={styles.container}>
-      <Sidebar />
+    <div>
+      <Header />
+      <div className="containerLayout">
+        <div className={styles.storeRow}>
+          <Sidebar />
 
-      <div className={styles.productBox}>
-        <AnimatePresence>
-          {productsState.loading ? (
-            <Perload />
-          ) : productsState.error ? (
-            <p>Something went wrong</p>
-          ) : (
-            <motion.div animate={{ x: 0, y: 0 }} className={styles.product}>
-              {(filterState.filterItems.length
-                ? filterState.filterItems
-                : productsState.products
-              ).map((product) => (
-                <Product key={product.id} productData={product} />
-              ))}
-            </motion.div>
-          )}
-        </AnimatePresence>
+          <div className={styles.productBox}>
+            <AnimatePresence>
+              {productsState.loading ? (
+                <Perload />
+              ) : productsState.error ? (
+                <p>Something went wrong</p>
+              ) : (
+                <motion.div animate={{ x: 0, y: 0 }} className={styles.product}>
+                  {(filterState.filterItems.length
+                    ? filterState.filterItems
+                    : productsState.products
+                  ).map((product) => (
+                    <Product key={product.id} productData={product} />
+                  ))}
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        </div>
       </div>
     </div>
   );

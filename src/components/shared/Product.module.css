@@ -1,20 +1,22 @@
 .container {
-  border: 1px solid silver;
+  /* border: 1px solid silver; */
   border-radius: 10px;
   overflow: hidden;
   background-color: #fff;
   transition: all 0.3s ease-in-out;
   text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 5px 10px;
 }
 
-.container:hover {
-  box-shadow: rgba(0, 0, 0, 0.1) 5px 5px 10px;
+.container:hover .imgBox {
+  transform: scale(1.1);
 }
 
 .imgBox {
   width: 100%;
   height: 200px;
   margin: 10px 0;
+  transition: all 0.2s ease-in;
 }
 
 .cardImage {
@@ -30,6 +32,7 @@
   padding: 1rem;
   background-color: #fdfdfd;
   position: fixed;
+  z-index: 99;
   border-radius: 15px;
   border: #ef394e 2px solid;
   box-shadow: rgba(0, 0, 0, 0.1) 10px 10px 15px;
@@ -59,7 +62,7 @@
   }
   to {
     top: 40px;
-    right: 10%;
+    right: 13%;
     width: 0;
     height: 0;
     opacity: 0;
@@ -83,7 +86,7 @@
 
 .priceBox span {
   font-size: 0.9rem;
-  width: 20px;
+  width: fit-content;
 }
 
 .container p {
@@ -103,7 +106,7 @@
 
 .linkContainer a {
   text-decoration: none;
-  color: #ef394e;
+  color: #dc0029;
   font-size: 0.95rem;
 }
 
@@ -113,7 +116,7 @@
 
 .buttonContainer button {
   font-size: 0.9rem;
-  background-color: #ef394e;
+  background-color: #dc0029;
   border: none;
   color: #fff;
   height: 30px;
@@ -121,8 +124,7 @@
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 4px 12px -2px,
-    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  box-shadow: rgba(220, 0, 41, 0.2) 0 15px 15px;
   margin-left: 5px;
 }
 
@@ -148,4 +150,10 @@
   font-size: 1rem;
   font-weight: 600;
   color: #404040;
+}
+
+@media (max-width: 555px) {
+  .imgBoxMove {
+    right: 20%;
+  }
 }

@@ -2,15 +2,15 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 150px 150px 50px;
-  padding: 20px;
+  margin: 150px 0;
+  padding: 50px;
   border: 1px solid silver;
   background-color: #fff;
   border-radius: 10px;
 }
 
 .image {
-  width: 30%;
+  width: 300px;
 }
 
 .textContainer {

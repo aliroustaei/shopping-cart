@@ -4,10 +4,24 @@
   padding: 0;
   margin: 0;
   font-family: "Poppins", sans-serif;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
 body {
-  background-color: #f7f7f7;
+  background-color: #fdfdfd;
+  width: 100%;
+}
+
+.containerLayout {
+  max-width: 1400px;
+  padding: 0 5%;
+  margin-right: auto;
+  margin-left: auto;
 }
 
 .rateGreen {

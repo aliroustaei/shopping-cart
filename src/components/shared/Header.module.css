@@ -1,0 +1,65 @@
+.Header {
+  background: #fdfdfd;
+}
+
+.HeaderRow {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  align-items: center;
+  padding-top: 2rem;
+  min-height: 100vh;
+}
+
+.headerLeft {
+  flex: 1;
+}
+
+.headerLeft h3 {
+  color: #dc0029;
+  font-weight: 500;
+}
+
+.headerLeft h1 {
+  margin: 1rem 0;
+  font-size: 3rem;
+}
+
+.headerLeft p {
+  color: #858585;
+  max-width: 28rem;
+}
+
+.headerLeft button {
+  all: unset;
+  padding: 10px 15px;
+  background-color: rgb(220, 0, 41);
+  color: #fdfdfd;
+  font-size: 0.9rem;
+  width: 100px;
+  border-radius: 10px;
+  box-shadow: rgba(220, 0, 41, 0.2) 0 15px 15px;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerRight {
+  flex: 1;
+  width: 100%;
+}
+
+.headerRight img {
+  max-width: 500px;
+  min-width: 200px;
+  width: 100%;
+  float: right;
+}
+
+@media (max-width: 768px) {
+  .HeaderRow {
+    padding-top: 8rem;
+  }
+}
